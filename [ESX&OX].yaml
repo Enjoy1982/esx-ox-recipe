@@ -217,7 +217,7 @@ tasks:
   ## datacrack
   - action: download_github
     dest: ./resources/[3.Estandar]/datacrack
-    ref: main
+    ref: master
     src: https://github.com/utkuali/datacrack
 
   ## mana_audio

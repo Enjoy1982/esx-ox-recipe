@@ -155,11 +155,6 @@ tasks:
     ref: ox
     dest: ./resources/[3.Estandar]/pe-basicloading
 
-  - action: replace_string
-    mode: all_vars
-    file:
-      - ./resources/[pe]/pe-basicloading/web/config.js
-
   ## screenshot-basic
   - action: download_file
     url: https://github.com/project-error/screenshot-basic/releases/download/1.0.1/screenshot-basic.zip

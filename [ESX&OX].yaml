@@ -19,7 +19,7 @@ tasks:
   - action: download_github
     src: https://github.com/Enjoy1982/esx-ox-recipe
     ref: main
-    dest: ./tmp/mireceta
+    dest: ./tmp/recipe
 
   - action: move_path
     src: ./tmp/recipe/server.cfg

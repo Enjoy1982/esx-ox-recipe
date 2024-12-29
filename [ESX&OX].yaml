@@ -219,6 +219,26 @@ tasks:
   - action: ensure_dir
     path: ./resources/[7.creators]
 
+  ## borrado de archicos innecesarios
+
+  - action: remove_path
+    path: ./resources/[1.Principal]/esx_chat_theme
+
+  - action: remove_path
+    path: ./resources/[1.Principal]/esx_identity
+
+  - action: remove_path
+    path: ./resources/[1.Principal]/esx_multicharacter
+
+  - action: remove_path
+    path: ./resources/[1.Principal]/esx_loadingscreen
+
+  - action: remove_path
+    path: ./resources/[1.Principal]/esx_skin
+
+  - action: remove_path
+    path: ./resources/[1.Principal]/skinchanger
+
   ## Cleanup
   - action: remove_path
     path: ./tmp

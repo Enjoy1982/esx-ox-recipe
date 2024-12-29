@@ -152,13 +152,18 @@ tasks:
   - action: download_github
     src: https://github.com/AvarianKnight/pma-voice
     ref: main
-    dest: ./resources/[7.voice]pma-voice
+    dest: ./resources/[8.voice]/pma-voice
 
   ## loadingscreen
   - action: download_github
     src: https://github.com/DokaDoka/pe-basicloading
     ref: ox
     dest: ./resources/[3.Estandar]/pe-basicloading
+
+  - action: replace_string
+    mode: all_vars
+    file:
+      - ./resources/[pe]/pe-basicloading/web/config.js
 
   ## screenshot-basic
   - action: download_file
@@ -202,7 +207,17 @@ tasks:
   - action: download_github
     src: https://github.com/Bob74/bob74_ipl
     ref: master
-    dest: ./resources/[8.Streams]/[maps]/bob74_ipl
+    dest: ./resources/[9.Streams]/[maps]/bob74_ipl
+    
+  ## carpetas
+  - action: ensure_dir
+    path: ./resources/[4.Librerias]
+
+  - action: ensure_dir
+    path: ./resources/[6.jobs]
+
+  - action: ensure_dir
+    path: ./resources/[7.creators]
 
   ## Cleanup
   - action: remove_path

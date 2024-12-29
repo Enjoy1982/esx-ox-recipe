@@ -1,0 +1,209 @@
+$engine: 3
+$onesync: on
+name: ESX&OX
+version: 1.0.0
+author: NJoy
+description: Solo incluye la base, incluidos los esx_core, OX y lanzamientos gratuitos que me resultan de utilidad para mis servidores.
+
+tasks:
+  # Download default CFX resources
+  - action: download_github
+    src: https://github.com/citizenfx/cfx-server-data
+    ref: master
+    subpath: resources
+    dest: ./resources/[0.Cfx-Default]
+  - action: remove_path
+    path: ./resources/[0.Cfx-Default]/[gameplay]/chat
+  
+  # Download and prepare server.cfg / loadingscreen / database
+  - action: download_github
+    src: https://github.com/Enjoy1982/esx-ox-recipe
+    ref: main
+    dest: ./tmp/mireceta
+
+  - action: move_path
+    src: ./tmp/recipe/server.cfg
+    dest: ./server.cfg
+
+  - action: move_path
+    src: ./tmp/recipe/myLogo.png
+    dest: ./myLogo.png
+
+  - action: move_path
+    src: ./tmp/recipe/gotham2.png
+    dest: ./gotham2.png
+
+  - action: move_path
+    src: ./tmp/recipe/perms.cfg
+    dest: ./perms.cfg
+
+  - action: move_path
+    src: ./tmp/recipe/tebex.cfg
+    dest: ./tebex.cfg
+
+  - action: move_path
+    src: ./tmp/recipe/gotham_v1.sql
+    dest: ./gotham_v1.sql
+
+  # Download basic resources and ESX dependencies
+
+  - action: connect_database
+
+  - action: download_github
+    src: https://github.com/esx-framework/esx-core
+    ref: main
+    dest: ./tmp/core
+
+  - action: query_database
+    file: ./gotham_v1.sql
+
+  - action: download_github
+    src: https://github.com/esx-framework/esx_addonaccount
+    ref: main
+    dest: ./tmp/addons/esx_addonaccount
+
+  - action: download_github
+    src: https://github.com/esx-framework/esx_addoninventory
+    ref: main
+    dest: ./tmp/addons/esx_addoninventory
+
+  - action: waste_time # prevent github throttling
+    seconds: 5
+
+  - action: download_github
+    src: https://github.com/esx-framework/esx_society
+    ref: main
+    dest: ./tmp/addons/esx_society
+
+  - action: download_github
+    src: https://github.com/esx-framework/esx_license
+    ref: main
+    dest: ./tmp/addons/esx_license
+
+  - action: move_path
+    src: ./tmp/core/[core]
+    dest: ./resources/[1.Principal]
+
+  - action: move_path
+    src: ./tmp/addons/
+    dest: ./resources/[2.Addons-ESX]
+
+  ## oxmysql
+  - action: download_file
+    url: https://github.com/overextended/oxmysql/releases/latest/download/oxmysql.zip
+    path: ./tmp/oxmysql.zip
+  - action: unzip
+    src: ./tmp/oxmysql.zip
+    dest: ./resources/[1.Principal]
+
+  ## ox_lib
+  - action: download_file
+    url: https://github.com/overextended/ox_lib/releases/latest/download/ox_lib.zip
+    path: ./tmp/ox_lib.zip
+  - action: unzip
+    src: ./tmp/ox_lib.zip
+    dest: ./resources/[1.Principal]
+
+  ## ox_inventory
+  - action: download_file
+    url: https://github.com/overextended/ox_inventory/releases/latest/download/ox_inventory.zip
+    path: ./tmp/ox_inventory.zip
+  - action: unzip
+    src: ./tmp/ox_inventory.zip
+    dest: ./resources/[1.Principal]
+
+  ## ox_doorlock
+  - action: download_file
+    url: https://github.com/overextended/ox_doorlock/releases/latest/download/ox_doorlock.zip
+    path: ./tmp/ox_doorlock.zip
+  - action: unzip
+    src: ./tmp/ox_doorlock.zip
+    dest: ./resources/[1.Principal]
+
+  ## ox_target
+  - action: download_file
+    url: https://github.com/overextended/ox_target/releases/latest/download/ox_target.zip
+    path: ./tmp/ox_target.zip
+  - action: unzip
+    src: ./tmp/ox_target.zip
+    dest: ./resources/[1.Principal]
+
+  - action: waste_time # prevent github throttling
+    seconds: 5
+
+  # Badgers
+  - action: download_github
+    src: https://github.com/JaredScar/Badger_Discord_API
+    ref: main
+    dest: ./resources/[1.Principal]/Badger_Discord_API
+
+  - action: download_github
+    src: https://github.com/JaredScar/DiscordAcePerms
+    ref: master
+    dest: ./resources/[1.Principal]/DiscordAcePerms
+
+  ## illenium-appearance
+  - action: download_github
+    src: https://github.com/iLLeniumStudios/illenium-appearance
+    ref: main
+    dest: ./resources/[3.Estandar]/illenium-appearance
+
+  ## pma-voice
+  - action: download_github
+    src: https://github.com/AvarianKnight/pma-voice
+    ref: main
+    dest: ./resources/[7.voice]pma-voice
+
+  ## loadingscreen
+  - action: download_github
+    src: https://github.com/DokaDoka/pe-basicloading
+    ref: ox
+    dest: ./resources/[3.Estandar]/pe-basicloading
+
+  ## screenshot-basic
+  - action: download_file
+    url: https://github.com/project-error/screenshot-basic/releases/download/1.0.1/screenshot-basic.zip
+    path: ./tmp/screenshot-basic.zip
+  - action: unzip
+    src: ./tmp/screenshot-basic.zip
+    dest: ./resources/[3.Estandar]/screenshot-basic
+
+  ## scully_emotemenu
+  - action: download_github
+    dest: ./resources/[3.Estandar]/scully_emotemenu
+    ref: main
+    src: https://github.com/Scullyy/scully_emotemenu
+
+  ## lunar_jobcentre
+  - action: download_github
+    src: https://github.com/Lunar-Scripts/lunar_jobcentre
+    ref: main
+    dest: ./resources/[5.Plugins]/lunar_jobcentre
+
+  ## lunar_fishing
+  - action: download_github
+    src: https://github.com/Lunar-Scripts/lunar_fishing
+    ref: main
+    dest: ./resources/[5.Plugins]/lunar_fishing
+
+  ## lunar_antihitbox
+  - action: download_github
+    src: https://github.com/Lunar-Scripts/lunar_antihitbox
+    ref: main
+    dest: ./resources/[5.Plugins]/lunar_antihitbox
+
+  ## lunar_npcmechanic
+  - action: download_github
+    src: https://github.com/Lunar-Scripts/lunar_npcmechanic
+    ref: main
+    dest: ./resources/[5.Plugins]/lunar_npcmechanic
+
+  ## maps
+  - action: download_github
+    src: https://github.com/Bob74/bob74_ipl
+    ref: master
+    dest: ./resources/[8.Streams]/[maps]/bob74_ipl
+
+  ## Cleanup
+  - action: remove_path
+    path: ./tmp

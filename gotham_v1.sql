@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 28-12-2024 a las 05:24:44
+-- Tiempo de generación: 29-12-2024 a las 02:20:14
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -134,6 +134,28 @@ CREATE TABLE `licenses` (
 
 INSERT INTO `licenses` (`type`, `label`) VALUES
 ('weapon', 'Weapon License');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `lunar_fishing`
+--
+
+CREATE TABLE `lunar_fishing` (
+  `user_identifier` varchar(50) NOT NULL,
+  `xp` float NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `multicharacter_slots`
+--
+
+CREATE TABLE `multicharacter_slots` (
+  `identifier` varchar(60) NOT NULL,
+  `slots` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -284,7 +306,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`identifier`, `accounts`, `group`, `inventory`, `job`, `job_grade`, `loadout`, `metadata`, `position`, `firstname`, `lastname`, `dateofbirth`, `sex`, `height`, `skin`, `disabled`) VALUES
-('8aea1ea045b56ecd98d63f338874d06d36bcabdf', '{\"bank\":50000}', 'admin', NULL, 'unemployed', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0);
+('8aea1ea045b56ecd98d63f338874d06d36bcabdf', '{\"bank\":50000,\"black_money\":0,\"money\":0}', 'admin', '[]', 'unemployed', 0, '[]', '{\"health\":200,\"lastPlaytime\":183,\"jobDuty\":false,\"armor\":0}', '{\"x\":223.60879516601563,\"heading\":39.68503952026367,\"z\":30.2908935546875,\"y\":-864.2241821289063}', NULL, NULL, NULL, NULL, NULL, NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -339,6 +361,19 @@ ALTER TABLE `job_grades`
 --
 ALTER TABLE `licenses`
   ADD PRIMARY KEY (`type`);
+
+--
+-- Indices de la tabla `lunar_fishing`
+--
+ALTER TABLE `lunar_fishing`
+  ADD PRIMARY KEY (`user_identifier`);
+
+--
+-- Indices de la tabla `multicharacter_slots`
+--
+ALTER TABLE `multicharacter_slots`
+  ADD PRIMARY KEY (`identifier`) USING BTREE,
+  ADD KEY `slots` (`slots`) USING BTREE;
 
 --
 -- Indices de la tabla `owned_vehicles`

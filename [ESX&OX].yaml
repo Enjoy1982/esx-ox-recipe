@@ -168,6 +168,75 @@ tasks:
     src: ./tmp/screenshot-basic.zip
     dest: ./resources/[3.Estandar]/screenshot-basic
 
+  ## xsound
+  - action: download_github
+    src: https://github.com/Xogy/xsound
+    ref: master
+    dest: ./resources/[3.Estandar]/xsound
+    
+   ## cd_easytime
+  - action: download_github
+    dest: ./resources/[3.Estandar]/cd_easytime
+    ref: main
+    src: https://github.com/dsheedes/cd_easytime
+
+  ## MugShotBase64
+  - action: download_github
+    dest: ./resources/[3.Estandar]/MugShotBase64
+    ref: main
+    src: https://github.com/BaziForYou/MugShotBase64
+    subpath: MugShotBase64
+
+  - action: download_file
+    url: https://raw.githubusercontent.com/BaziForYou/MugShotBase64/main/README.md
+    path: ./resources/[3.Estandar]/MugShotBase64/README.md
+
+  - action: download_file
+    url: https://raw.githubusercontent.com/BaziForYou/MugShotBase64/main/LICENSE.md
+    path: ./resources/[3.Estandar]/MugShotBase64/LICENSE.md
+
+  ## ultra-voltla
+  - action: download_github
+    dest: ./resources/[3.Estandar]/ultra-voltlab
+    ref: main
+    src: https://github.com/ultrahacx/ultra-voltlab
+
+  ## mka-lasers
+  - action: download_github
+    dest: ./resources/[3.Estandar]/mka-lasers
+    ref: main
+    src: https://github.com/mkafrin/mka-lasers
+
+  ## Finger-Print-Hacking-Game
+  - action: download_github
+    dest: ./resources/[3.Estandar]
+    ref: master
+    src: https://github.com/utkuali/Finger-Print-Hacking-Game
+
+  ## ultra-keypackhack
+  - action: download_github
+    dest: ./resources/[3.Estandar]/ultra-keypackhack
+    ref: main
+    src: https://github.com/ultrahacx/ultra-keypackhack
+    
+  ## datacrack
+  - action: download_github
+    dest: ./resources/[3.Estandar]/datacrack
+    ref: main
+    src: https://github.com/utkuali/datacrack
+
+  ## mana_audio
+  - action: download_github
+    src: https://github.com/Manason/mana_audio
+    ref: main
+    dest: ./resources/[3.Estandar]/mana_audio
+
+  ## lockpick
+  - action: download_github
+    src: https://github.com/quasar-scripts/lockpick
+    ref: main
+    dest: ./resources/[3.Estandar]/lockpick
+
   ## scully_emotemenu
   - action: download_github
     dest: ./resources/[3.Estandar]/scully_emotemenu

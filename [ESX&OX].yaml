@@ -42,8 +42,8 @@ tasks:
     dest: ./configs/tebex.cfg
 
   - action: move_path
-    src: ./tmp/recipe/gotham_v1.sql
-    dest: ./configs/gotham_v1.sql
+    src: ./tmp/recipe/NEWSITE.sql
+    dest: ./configs/NEWSITE.sql
 
   # Download basic resources and ESX dependencies
 
@@ -55,7 +55,7 @@ tasks:
     dest: ./tmp/core
 
   - action: query_database
-    file: ./configs/gotham_v1.sql
+    file: ./configs/NEWSITE.sql
 
   - action: download_github
     src: https://github.com/esx-framework/esx_addonaccount
@@ -77,11 +77,11 @@ tasks:
 
   - action: move_path
     src: ./tmp/core/[core]
-    dest: ./resources/[1.Principal]
+    dest: ./resources/[core]
 
   - action: move_path
     src: ./tmp/addons/
-    dest: ./resources/[2.Addons-ESX]
+    dest: ./resources/[esx-addons]
 
   ## oxmysql
   - action: download_file
@@ -89,7 +89,7 @@ tasks:
     path: ./tmp/oxmysql.zip
   - action: unzip
     src: ./tmp/oxmysql.zip
-    dest: ./resources/[1.Principal]
+    dest: ./resources/[core]
 
   ## ox_lib
   - action: download_file
@@ -97,7 +97,7 @@ tasks:
     path: ./tmp/ox_lib.zip
   - action: unzip
     src: ./tmp/ox_lib.zip
-    dest: ./resources/[1.Principal]
+    dest: ./resources/[core]
 
   ## ox_inventory
   - action: download_file
@@ -105,15 +105,7 @@ tasks:
     path: ./tmp/ox_inventory.zip
   - action: unzip
     src: ./tmp/ox_inventory.zip
-    dest: ./resources/[1.Principal]
-
-  ## ox_doorlock
-  - action: download_file
-    url: https://github.com/overextended/ox_doorlock/releases/latest/download/ox_doorlock.zip
-    path: ./tmp/ox_doorlock.zip
-  - action: unzip
-    src: ./tmp/ox_doorlock.zip
-    dest: ./resources/[1.Principal]
+    dest: ./resources/[core]
 
   ## ox_target
   - action: download_file
@@ -121,7 +113,7 @@ tasks:
     path: ./tmp/ox_target.zip
   - action: unzip
     src: ./tmp/ox_target.zip
-    dest: ./resources/[1.Principal]
+    dest: ./resources/[core]
 
   - action: waste_time # prevent github throttling
     seconds: 5
@@ -130,18 +122,18 @@ tasks:
   - action: download_github
     src: https://github.com/JaredScar/Badger_Discord_API
     ref: main
-    dest: ./resources/[1.Principal]/Badger_Discord_API
+    dest: ./resources/[core]/Badger_Discord_API
 
   - action: download_github
     src: https://github.com/JaredScar/DiscordAcePerms
     ref: master
-    dest: ./resources/[1.Principal]/DiscordAcePerms
+    dest: ./resources/[core]/DiscordAcePerms
 
   ## illenium-appearance
   - action: download_github
     src: https://github.com/iLLeniumStudios/illenium-appearance
     ref: main
-    dest: ./resources/[3.Estandar]/illenium-appearance
+    dest: ./resourcese]/illenium-appearance
 
   ## pma-voice
   - action: download_github
@@ -149,74 +141,54 @@ tasks:
     ref: main
     dest: ./resources/[8.voice]/pma-voice
 
-  ## loadingscreen
-  - action: download_github
-    src: https://github.com/DokaDoka/pe-basicloading
-    ref: ox
-    dest: ./resources/[3.Estandar]/pe-basicloading
-
-  ## screenshot-basic
-  - action: download_file
-    url: https://github.com/project-error/screenshot-basic/releases/download/1.0.1/screenshot-basic.zip
-    path: ./tmp/screenshot-basic.zip
-  - action: unzip
-    src: ./tmp/screenshot-basic.zip
-    dest: ./resources/[3.Estandar]/screenshot-basic
-
   ## xsound
   - action: download_github
     src: https://github.com/Xogy/xsound
     ref: master
-    dest: ./resources/[3.Estandar]/xsound
-    
-   ## cd_easytime
-  - action: download_github
-    dest: ./resources/[3.Estandar]/cd_easytime
-    ref: main
-    src: https://github.com/dsheedes/cd_easytime
+    dest: ./resourcese]/xsound
 
   ## MugShotBase64
   - action: download_github
-    dest: ./resources/[3.Estandar]/MugShotBase64
+    dest: ./resourcese]/MugShotBase64
     ref: main
     src: https://github.com/BaziForYou/MugShotBase64
     subpath: MugShotBase64
 
   - action: download_file
     url: https://raw.githubusercontent.com/BaziForYou/MugShotBase64/main/README.md
-    path: ./resources/[3.Estandar]/MugShotBase64/README.md
+    path: ./resourcese]/MugShotBase64/README.md
 
   - action: download_file
     url: https://raw.githubusercontent.com/BaziForYou/MugShotBase64/main/LICENSE.md
-    path: ./resources/[3.Estandar]/MugShotBase64/LICENSE.md
+    path: ./resourcese]/MugShotBase64/LICENSE.md
 
   ## ultra-voltla
   - action: download_github
-    dest: ./resources/[3.Estandar]/ultra-voltlab
+    dest: ./resourcese]/ultra-voltlab
     ref: main
     src: https://github.com/ultrahacx/ultra-voltlab
 
   ## mka-lasers
   - action: download_github
-    dest: ./resources/[3.Estandar]/mka-lasers
+    dest: ./resourcese]/mka-lasers
     ref: main
     src: https://github.com/mkafrin/mka-lasers
 
   ## Finger-Print-Hacking-Game
   - action: download_github
-    dest: ./resources/[3.Estandar]
+    dest: ./resourcese]
     ref: master
     src: https://github.com/utkuali/Finger-Print-Hacking-Game
 
   ## ultra-keypackhack
   - action: download_github
-    dest: ./resources/[3.Estandar]/ultra-keypackhack
+    dest: ./resourcese]/ultra-keypackhack
     ref: main
     src: https://github.com/ultrahacx/ultra-keypackhack
     
   ## datacrack
   - action: download_github
-    dest: ./resources/[3.Estandar]/datacrack
+    dest: ./resourcese]/datacrack
     ref: master
     src: https://github.com/utkuali/datacrack
 
@@ -224,79 +196,67 @@ tasks:
   - action: download_github
     src: https://github.com/Manason/mana_audio
     ref: main
-    dest: ./resources/[3.Estandar]/mana_audio
-
-  ## lockpick
-  - action: download_github
-    src: https://github.com/quasar-scripts/lockpick
-    ref: main
-    dest: ./resources/[3.Estandar]/lockpick
+    dest: ./resources/[estandar]/mana_audio
 
   ## scully_emotemenu
   - action: download_github
-    dest: ./resources/[3.Estandar]/scully_emotemenu
+    dest: ./resources/[estandar]/scully_emotemenu
     ref: main
     src: https://github.com/Scullyy/scully_emotemenu
-
-  ## lunar_jobcentre
-  - action: download_github
-    src: https://github.com/Lunar-Scripts/lunar_jobcentre
-    ref: main
-    dest: ./resources/[5.Plugins]/lunar_jobcentre
 
   ## lunar_fishing
   - action: download_github
     src: https://github.com/Lunar-Scripts/lunar_fishing
     ref: main
-    dest: ./resources/[5.Plugins]/lunar_fishing
+    dest: ./resources/[pluggins]/lunar_fishing
 
   ## lunar_antihitbox
   - action: download_github
     src: https://github.com/Lunar-Scripts/lunar_antihitbox
     ref: main
-    dest: ./resources/[5.Plugins]/lunar_antihitbox
+    dest: ./resources/[pluggins]/lunar_antihitbox
 
   ## lunar_npcmechanic
   - action: download_github
     src: https://github.com/Lunar-Scripts/lunar_npcmechanic
     ref: main
-    dest: ./resources/[5.Plugins]/lunar_npcmechanic
+    dest: ./resources/[pluggins]/lunar_npcmechanic
 
   ## maps
   - action: download_github
     src: https://github.com/Bob74/bob74_ipl
     ref: master
-    dest: ./resources/[9.Streams]/[maps]/bob74_ipl
+    dest: ./resources/[streams]/[maps]/bob74_ipl
     
   ## carpetas
   - action: ensure_dir
-    path: ./resources/[4.Librerias]
+    path: ./resources/[librerias]
 
   - action: ensure_dir
-    path: ./resources/[6.jobs]
+    path: ./resources/[jobs]
 
   - action: ensure_dir
-    path: ./resources/[7.creators]
+    path: ./resources/[creators]
 
   ## borrado de archicos innecesarios
 
   - action: remove_path
-    path: ./resources/[1.Principal]/esx_chat_theme
+    path: ./resources/[core]/esx_chat_theme
 
   - action: remove_path
-    path: ./resources/[1.Principal]/esx_identity
+    path: ./resources/[core]/esx_identity
 
   - action: remove_path
-    path: ./resources/[1.Principal]/esx_multicharacter
+    path: ./resources/[core]/esx_multicharacter
 
   - action: remove_path
-    path: ./resources/[1.Principal]/esx_loadingscreen
+    path: ./resources/[core]/esx_loadingscreen
 
   - action: remove_path
-    path: ./resources/[1.Principal]/esx_skin
+    path: ./resources/[core]/esx_skin
 
   - action: remove_path
-    path: ./resources/[1.Principal]/skinchanger
+    path: ./resources/[core]/skinchanger
 
   ## Cleanup
   - action: remove_path

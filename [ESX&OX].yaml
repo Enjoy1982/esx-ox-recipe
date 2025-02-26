@@ -30,10 +30,6 @@ tasks:
     dest: ./myLogo.png
 
   - action: move_path
-    src: ./tmp/recipe/gotham2.png
-    dest: ./configs/gotham2.png
-
-  - action: move_path
     src: ./tmp/recipe/perms.cfg
     dest: ./configs/perms.cfg
 
